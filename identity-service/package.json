@@ -1,0 +1,19 @@
+{
+  "name": "identity-service",
+  "version": "1.0.0",
+  "description": "This microservice will manage the identity and user related works.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "author": "Saad UR Rehman",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
