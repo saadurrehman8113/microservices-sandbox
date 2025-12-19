@@ -1,0 +1,32 @@
+services:
+  identity-service:
+    build: ./identity-service
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./identity-service/.env
+    depends_on:
+      - identity-ms1
+
+  identity-ms1:
+    image: mongo:6
+    volumes:
+      - identity_ms1_data:/data/db
+
+  catalog-service:
+    build: ./catalog-service
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./catalog-service/.env
+    depends_on:
+      - catalog-ms2
+
+  catalog-ms2:
+    image: mongo:6
+    volumes:
+      - catalog_ms2_data:/data/db
+
+volumes:
+  identity_ms1_data:
+  catalog_ms2_data:
