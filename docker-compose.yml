@@ -27,6 +27,23 @@ services:
     volumes:
       - catalog_ms2_data:/data/db
 
+  order-service:
+    build: ./order-service
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./order-service/.env
+    depends_on:
+      - order-ms3
+      - identity-service
+      - catalog-service
+
+  order-ms3:
+    image: mongo:6
+    volumes:
+      - order_ms3_data:/data/db
+
 volumes:
   identity_ms1_data:
   catalog_ms2_data:
+  order_ms3_data:

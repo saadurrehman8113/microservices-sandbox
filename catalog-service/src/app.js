@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/product", productRoutes);
+app.use("/products", productRoutes);
 
 // health check (VERY important in microservices)
 app.get("/health", (req, res) => {
