@@ -6,6 +6,20 @@ const app = express();
 
 app.use(express.json());
 
+app.post("/events", (req, res) => {
+  const { type, data } = req.body;
+
+  if (type === "UserCreated") {
+    // save user locally
+  }
+
+  if (type === "ProductCreated") {
+    // save product locally
+  }
+
+  res.send({});
+});
+
 app.use("/orders", orderRoutes);
 
 // health check (VERY important in microservices)
